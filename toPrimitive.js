@@ -1,3 +1,6 @@
+/**
+ * 自定义转换为原始类型的行为
+ */
 const a = {
   //   toString: () => {
   //     return "wo shi a";

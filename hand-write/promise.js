@@ -8,7 +8,7 @@ const PENDING = "pending";
 const RESOLVED = "resolved";
 const REJECTED = "rejected";
 
-class pro {
+class myPromise {
   constructor(fn) {
     this.status = PENDING;
     this.value = null;
@@ -50,7 +50,7 @@ class pro {
   };
 }
 
-const pa = new pro(a);
+const pa = new myPromise(a);
 
 pa.then((res) => {
   console.log(res + " " + "world");

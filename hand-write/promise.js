@@ -4,6 +4,12 @@ const a = (cb) => {
   }, 1000);
 };
 
+const b = (cb) => {
+  setTimeout(() => {
+    cb("world");
+  }, 2000);
+};
+
 const PENDING = "pending";
 const RESOLVED = "resolved";
 const REJECTED = "rejected";
@@ -48,10 +54,30 @@ class myPromise {
       cb2(this.value);
     }
   };
+
+  static all = (arr) => {
+    return new myPromise((resolve) => {
+      const res = [];
+
+      for (let i = 0; i < arr.length; i++) {
+        arr[i].then((r) => {
+          res.push(r);
+
+          if (res.length === arr.length) {
+            resolve(res);
+          }
+        });
+      }
+    });
+  };
 }
 
 const pa = new myPromise(a);
+const pb = new myPromise(b);
 
-pa.then((res) => {
-  console.log(res + " " + "world");
-});
+// pa.then((res) => {
+//   console.log(res + " " + "world");
+// });
+const pab = myPromise.all([pa, pb]);
+pab.then((res) => console.log(res));
+// debugger;

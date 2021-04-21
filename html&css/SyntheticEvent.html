@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="inp" />
+    <input id="inp2" />
+  </body>
+  <script>
+    var dom = document.getElementById("inp");
+
+    dom.onchange = function () {
+      console.log("change");
+    };
+
+    dom.oninput = function () {
+      console.log("input");
+    };
+
+    var dom2 = document.getElementById("inp2");
+
+    dom2.onchange = function () {
+      console.log("change2");
+    };
+
+    dom2.oninput = function () {
+      console.log("input2");
+    };
+
+    document.onchange = function (e) {
+      console.log("document change");
+    };
+
+    document.oninput = function (e) {
+      console.log("document input");
+    };
+  </script>
+</html>
